@@ -1,0 +1,52 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,oneside]{article}
+
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\setmonofont{Inconsolatazi4}
+
+\usepackage[autocite=superscript]{biblatex}
+\bibliography{src/references.bib}
+
+\usepackage{hyperref}
+\hypersetup{%
+    pdfauthor={Niklaus Wirth},
+    pdftitle={Program Development by Stepwise Refinement},
+    pdfsubject={education in programming, programming techniques, stepwise program construction},
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=red,
+}
+
+\usepackage{amsmath}
+\usepackage{listingsutf8}
+\lstset{%
+    columns=fullflexible,
+    mathescape=true,
+    showstringspaces=false,
+    basicstyle=\small\ttfamily,
+    morekeywords={begin, variable, procedure, repeat, until, if, then, else,%
+        end, array, integer, Boolean, PRINT, FAILURE},
+}
+
+\title{Program Development by Stepwise Refinement}
+\author{Niklaus Wirth}
+\date{April 1971}
+
+\frenchspacing
+
+\begin{document}
+\maketitle
+\tableofcontents
+\input{src/0_preface.tex}
+\input{src/1_introduction.tex}
+\input{src/2_notation.tex}
+\input{src/3_the_8_queens_problem.tex}
+\input{src/4_development_of_the_program.tex}
+\input{src/5_generalized_8_queens.tex}
+\input{src/6_extended_program.tex}
+\input{src/7_conclusion.tex}
+\printbibliography
+\end{document}

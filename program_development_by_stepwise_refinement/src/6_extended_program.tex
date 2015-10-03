@@ -1,0 +1,60 @@
+\section{The Extended Program}
+
+The technique of extending the two given programs finding a solution to the
+simple 8-queens problem is based on the idea of modification of the global
+structure only, and of using the same building blocks. The global structure
+must be changed such that upon finding a solution the algorithm will produce an
+appropriate indication-e.g.\ by printing the solution-and then proceed to find
+the next solution until it is found or the limit is reached.  A simple
+condition for reaching the limit is the event when the first queen is moved
+beyond row 8, in which case regression out of the first column will take
+place.  These deliberations lead to the following modified version of the
+nonrecursive program:
+
+\begin{lstlisting}
+    considerfirstcolumn;
+    repeat trycolumn;
+        if safe then
+        begin setqueen; considernextcolumn;
+            if lastcoldone then
+            begin PRlNT(x); regress
+       end end else regress
+    until regressouttofirstcol
+\end{lstlisting}
+
+Indication of a solution being found by printing it now occurs directly at
+the level of detection, i.e.\ before leaving the repetition clause.  Then
+the algorithm proceeds to find a next solution whereby a shortcut is used
+by directly regressing to the prior column; since a solution places one
+queen in each row, there is no point in further moving the last queen
+within the eighth column.
+
+The recursive program is extended with even greater ease following the same
+considerations:
+
+\begin{lstlisting}
+    procedure Trycolumn(j);
+    begin integer i;
+        $\langle$declaralions of procedures testsquare, advancequeen,
+        setqueen, removequeen, lastsquare$\rangle$
+        i := 0;
+        repeat advancequeen; testsquare;
+            if safe then
+            begin setqueen; x[j] := i;
+                if $\neg$ lastcoldone then Trycolumn(i + l) else PRINT(x);
+                removequeen
+            end
+        until lastsquare
+    end
+\end{lstlisting}
+
+The main program starting the algorithm then consists (apart from
+initialization of \verb|a|, \verb|b|, and \verb|c|) of the single statement
+\verb|Trycolumn(1)|.
+
+In concluding, it should be noted that both programs represent the same
+algorithm. Both determine 92 solutions in the same order by testing squares
+15720 times. This yields an average of 171 tests per solution; the maximum is
+876 test for finding a next solution (the first one), and the minimum is 8.
+(Both programs coded in the language Pascal were executed by a CDC 6400
+computer in less than one second.)

@@ -1,0 +1,61 @@
+\section{The Generalized 8-Queens Problem}
+
+In the practical world of computing, it is rather uncommon that a program, once
+it performs correctly and satisfactorily, remains unchanged forever.  Usually
+its users discover sooner or later that their program does not deliver all the
+desired results, or worse, that the results requested were not the ones really
+needed.  Then either an extension or a change of the program is called for, and
+it is in this case where the method of stepwise program design and systematic
+structuring is most valuable and advantageous. If the structure and the program
+components were well chosen, then often many of the constituent instructions
+can be adopted unchanged.  Thereby the effort of redesign and reverification
+may be drastically reduced.  As a matter of fact, the \emph{adaptability} of a
+program to changes in its objectives (often called maintainability) and be
+measured primarily in terms of the degree to which it is nearly structured.
+
+It is the purpose of the subsequent section to demonstrate this advantage in
+view of a generalization of the original 8-queens problem and its solution
+through an extension of the program components introduced before.
+
+The generalized problem is formulated as follows:
+
+\begin{quote}
+    Find \emph{all} possible configurations or 8 hostile queens on an
+    8 $\times$ 8 chessboard, such that no queen may be taken by any other queen.
+\end{quote}
+
+The new problem essentially consists of two parts:
+
+\begin{enumerate}
+    \item Finding a method to generate further solutions.
+    \item Determining whether all solutions were generated or not.
+\end{enumerate}
+
+It is evidently necessary to generate and test candidates for solutions in some
+\emph{systematic manner}.  A common technique is to find an \emph{ordering of
+candidates} and a condition to identify the last candidate. If an ordering is
+found, the solutions can be mapped onto the integers. A condition limiting the
+numeric values associated with the solutions then yields a criterion for
+termination of the algorithm, if the chosen method generates solutions strictly
+in increasing order.
+
+It is easy to find orderings of solutions for the present problem. We choose
+for convenience the mapping
+
+\begin{equation*}
+    M(x) = \displaystyle\sum{j = 1}^{8} x_j 10^{j-1}
+\end{equation*}
+
+An upper bound for possible solutions is then 
+\begin{equation*}
+    M(x_{max}) = 88888888
+\end{equation*}
+
+and the ``convenience'' lies in the circumstance that our earlier program
+generating one solution generates the minimum solution which can be regarded as
+the starting point from which to proceed to the next solution.  This is due to
+the chosen method of testing squares strictly proceeding in increasing order of
+$M(x)$ starting with $00000000$.  The method for generating further solutions
+must now be chosen such that starting with the configuration of a given
+solution, scanning proceeds in the same order of increasing $M$, until either
+the next higher solution is found or the limit is reached.

@@ -1,0 +1,55 @@
+\section{Introduction}
+
+Programming is usually taught by examples.  Experience shows that the success
+of a programming course critically depends on the choice of these examples.
+Unfortunately, they are too often selected with the prime intent to demonstrate
+what a computer can do.  Instead, a main criterion for selection should be
+their suitability to exhibit certain widely applicable \emph{techniques}.
+Furthermore, examples of programs are commonly presented as finished
+``products'' followed by explanations of their purpose and their linguistic
+details.  But active programming consists of the design of \emph{new} programs,
+rather than contemplation of old programs.  As a consequence of these teaching
+methods, the student obtains the impression that programming consists mainly of
+mastering a language (with all the peculiarities and intricacies so abundant in
+modern PL's) and relying on one's intuition to somehow transform ideas into
+finished programs.  Clearly, programming courses should teach methods of design
+and construction, and the selected examples should be such that a gradual
+\emph{development} can be nicely demonstrated.  
+
+This paper deals with a single example chosen with these two purposes in mind.
+Some well-known techniques are briefly demonstrated and motivated (strategy of
+preselection, stepwise construction of trial solutions, introduction of
+auxiliary data, recursion), and the program is gradually developed in a
+sequence of \emph{refinement steps}.
+
+In each step, one or several instructions of the given program are decomposed
+into more detailed instructions. This successive decomposition or refinement of
+specifications terminates when all instructions are expressed in terms of an
+underlying computer or programming language, and must therefore be guided by
+the facilities available on that computer or language.  The result of the
+execution of a program is expressed in terms of data, and it may be necessary
+to introduce further data for communication between the obtained subtasks or
+instructions.  As tasks are refined, so the data may have to be refined,
+decomposed, or structured, and it is natural to \emph{refine program and data
+specifications in parallel}.
+
+Every refinement step implies some design decisions.  It is important that
+these decision be made explicit, and that the programmer be aware of the
+underlying criteria and of the existence of alternative solutions.  The
+possible solutions to a given problem emerge as the leaves of a tree, each node
+representing a point of deliberation and decision.  Subtrees may be considered
+as \emph{families of solutions} with certain common characteristics and
+structures.  The notion of such a tree may be particularly helpful in the
+situation of changing purpose and environment to which a program may sometime
+have to be adapted.
+
+A guideline in the process of stepwise refinement should be the principle to
+decompose decisions as much as possible, to untangle aspects which are only
+seemingly interdependent, and to defer those decisions which concern details of
+representation as long as possible.  This will result in programs which are
+easier to adapt to different environments (languages and computers), where
+different representations may be required.
+
+The chosen sample problem is formulated at the beginning of section 3. The
+reader is strongly urged to try to find a solution by himself before embarking
+on the paper which-of course-presents only one of many possible solutions.

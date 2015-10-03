@@ -1,0 +1,62 @@
+\section{Conclusions}
+
+The lessons which the described example was supposed to illustrate can be
+summarized by the following points.
+
+\begin{enumerate}
+    \item Program construction consists of a sequence of \emph{refinement
+          steps}.  In each step a given task is broken up into a number of
+          suhtasks.  Each refinement in the description of a task may be
+          accompanied by a refinement of the description of the data which
+          constitute the means of communication between the subtasks.
+          Refinement of the description of program and data structures should
+          proceed in parallel.
+
+    \item The degree of \emph{modularity} obtained in this way will determine
+          the ease or difficulty with which a program can be adapted to changes
+          or extensions of the purpose or changes in the environment (language,
+          computer) in which it is executed.
+
+    \item During the process of stepwise refinement, a \emph{notation} which is
+          natural to the problem in hand should be used as long as possible.
+          The direction in which the notation develops during the process of
+          refinement is determined by the language in which the program must
+          ultimately be specified, i.e.\ with which the notation ultimately
+          becomes identical.  This language should therefore allow us to express
+          as naturally and clearly as possible the structure of program and
+          data which emerge during the design process. At the same time, it
+          must give guidance in the refinement process by exhibiting those
+          basic features and structuring principles which are natural to the
+          machine by which programs are supposed to be executed.  It is
+          remarkable that it would be difficult to find a language that would
+          meet these important requirements to a lesser degree that the one
+          language still used most widely in teaching programming: Fortran.
+
+    \item Each refinement implies a number of \emph{design decisions} based
+          upon a set of design criteria.  Among these criteria are efficiency,
+          storage economy, clarity, and regularity of structure. Students must
+          be taught to be conscious of the involved decisions and to critically
+          examine and to reject solutions, sometimes even if they are correct
+          as far as the result is concerned; they must learn to weigh the
+          various aspects of design alternatives in the light of these
+          criteria.  In particular, they must be taught to revoke earlier
+          decisions, and to back up, if necessary even to the top.  Relatively
+          short sample problems will often suffice to illustrate this important
+          point; it is not necessary to construct an operating system for this
+          purpose.
+
+    \item The detailed elaborations on the development of even a short program
+          form a long story, indicating that careful programming is not a
+          trivial subject.  If this paper has helped to dispel the widespread
+          belief that programming is easy as long as the programming language
+          is powerful enough and the available computer is fast enough, then it
+          has achieved one of its purposes.
+\end{enumerate}
+
+\emph{Acknowledgments}.  The author gratefully acknowledges the helpful and
+stimulating influence of many discussions with C.~A.~R.~Hoare and
+E.~W.~Dijkstra.
+
+\nocite{dijkstra1969}
+\nocite{naur1969}
+\nocite{wirth1970}
