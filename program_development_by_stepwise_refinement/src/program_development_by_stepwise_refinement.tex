@@ -1,4 +1,5 @@
 \documentclass[11pt,oneside]{article}
+\setlength{\parskip}{1em}
 
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
@@ -7,18 +8,20 @@
 \usepackage[autocite=superscript]{biblatex}
 \bibliography{src/references.bib}
 
+\usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
 \hypersetup{%
     pdfauthor={Niklaus Wirth},
     pdftitle={Program Development by Stepwise Refinement},
     pdfsubject={education in programming, programming techniques, stepwise program construction},
     colorlinks=true,
-    linkcolor=red,
-    urlcolor=red,
+    linkcolor=violet,
+    urlcolor=Aquamarine,
+    linktoc=all,
 }
 
 \usepackage{amsmath}
-\usepackage{listingsutf8}
+\usepackage{listings}
 \lstset{%
     columns=fullflexible,
     mathescape=true,
