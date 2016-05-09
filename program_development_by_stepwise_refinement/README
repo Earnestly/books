@@ -1,0 +1,30 @@
+wirth1971 <http://dl.acm.org/citation.cfm?id=944342>
+
+  This is a conversion of the article "Program Development by Stepwise
+  Refinement" written by Niklaus Wirth in 1971 to latex source.
+
+REQUIRES
+
+  Fonts
+
+    * Libertine Linux O <http://www.linuxlibertine.org>
+    * Inconsolatazi4 <https://www.ctan.org/tex-archive/fonts/inconsolata/opentype>
+
+  Tools
+
+    * xelatex
+    * latexmk
+    * make
+
+  Latex packages
+
+    * fontspec
+    * biblatex
+    * hyperref
+    * amsmath 
+    * listings
+    * xcolor
+
+BUILDING
+  
+  Run make
