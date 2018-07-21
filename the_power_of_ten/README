@@ -1,0 +1,27 @@
+holzmann2006 <http://spinroot.com/gerard/pdf/P10.pdf>
+
+  This is a conversion of the article "The Power of Ten – Rules for Developing
+  Safety Critical Code" written by Gerard J. Holzmann in 2006 to latex source.
+
+REQUIRES
+
+  Fonts
+
+    * Libertine Linux O <http://www.linuxlibertine.org>
+    * Inconsolatazi4 <https://www.ctan.org/tex-archive/fonts/inconsolata/opentype>
+
+  Tools
+
+    * xelatex
+    * latexmk
+    * make
+
+  LaTeX packages
+
+    * fontspec
+    * hyperref
+    * xcolor
+
+BUILDING
+
+  Run make
