@@ -2,7 +2,7 @@ taylor2007 <http://www.airs.com/blog/archives/38>
 
   This is a conversion of the essays written by Ian Lance Taylor on the topic
   of linkers. The entire collection is indexed here:
-  
+
     <http://lwn.net/Articles/276782/>
 
   There is also a "recipe" for Calibre for building other ebooks:
@@ -30,5 +30,5 @@ REQUIRES
     * xcolor
 
 BUILDING
-  
+
   Run make

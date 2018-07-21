@@ -1,26 +1,30 @@
 Books <https://github.com/Earnestly/books>
 
-WHY?
+INTRODUCTION
 
   There are many nice articles and documents out there but many of them are
-  only available to us in less than ideal formats. Either they come as a pdf
+  only available to us in less than ideal formats.  Either they come as a pdf
   document which has been poorly scanned into a computer without any text
   layers or they're produced with poor typesetters.
-  
+
   As a result this repository was created to host conversions of these works to
-  latex in an effort to both make reading more pleasant and give opportunity to
+  LaTeX in an effort to both make reading more pleasant and give opportunity to
   generate documentation for a variety of different media devices but also for
   basic preservation of some of the more interesting artefacts from computer
   science's history.
-  
+
   No copyright or plagarism intended.
 
-ARTICLES
+DOCUMENTS
 
-  * Program Development by Stepwise Refinement by Niklaus Wirth
+  * Program Development by Stepwise Refinement
+    Niklaus Wirth
     wirth1971 <http://dl.acm.org/citation.cfm?id=944342>
 
-ESSAYS
+  * The Power of Ten - Rules for Developing Safety Critical Code
+    Gerard J. Holzmann
+    holzmann2006 <http://spinroot.com/gerard/pdf/P10.pdf>
 
-  * Linkers by Ian Lance Taylor
+  * Linkers
+    Ian Lance Taylor
     taylor2007 <http://www.airs.com/blog/archives/38>
