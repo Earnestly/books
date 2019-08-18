@@ -1,5 +1,20 @@
 \documentclass[11pt,oneside]{article}
+\usepackage[
+  top=7em,
+  bottom=7em,
+  left=10em,
+  right=10em,
+  heightrounded
+]{geometry}
+
+% Add a little more room between paragraphs.
 \setlength{\parskip}{1em}
+
+% Turn off section numbering.
+\setcounter{secnumdepth}{0}
+
+% The old.  School.
+\frenchspacing
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
@@ -7,9 +22,9 @@
     pdftitle={The Powers of Ten - Rules for Developing Safety Critical Code},
     pdfauthor={Gerard J. Holzmann},
     colorlinks=true,
-    linkcolor=violet,
-    urlcolor=Aquamarine,
-    linktoc=all,
+    linkcolor=RoyalBlue,
+    urlcolor=Cerulean,
+    linktoc=all
 }
 
 \usepackage[no-math]{fontspec}
@@ -20,11 +35,13 @@
 \lstset{%
     language=c,
     columns=fullflexible,
+    mathescape=false,
+    keepspaces=true,
     showstringspaces=false,
-    basicstyle=\small\ttfamily
+    basicstyle=\small\ttfamily,
+    commentstyle=\color{Gray}\ttfamily,
+    keywordstyle=\bfseries\color{NavyBlue}\ttfamily
 }
-
-\frenchspacing
 
 \title{The Powers of Ten \\
 Rules for Developing Safety Critical Code \footnote{%
@@ -34,10 +51,13 @@ National Aeronautics and Space Administration.}}
 \author{Gerard J. Holzmann}
 \date{2006}
 
+% Compact the table of contents a little more than default.
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{1em}
+
 \begin{document}
 \maketitle
 \tableofcontents
-\setcounter{secnumdepth}{0}
 \newpage
 Most serious software development projects use coding guidelines. These
 guidelines are meant to state what the ground rules are for the software to be
@@ -188,11 +208,11 @@ code.
 
 A typical use of an assertion would be as follows:
 
-\lstinputlisting{src/assert1.c}
+\lstinputlisting{assert1.c}
 
 with the assertion defined as follows:
 
-\lstinputlisting{src/assert2.c}
+\lstinputlisting{assert2.c}
 
 In this definition, \texttt{\_\_FILE\_\_} and \texttt{\_\_LINE\_\_} are
 predefined by the macro preprocessor to produce the filename and line-number of
