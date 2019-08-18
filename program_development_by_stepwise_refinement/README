@@ -25,6 +25,7 @@ REQUIRES
     * amsmath
     * listings
     * xcolor
+    * tocloft
 
 BUILDING
 

@@ -1,0 +1,75 @@
+\documentclass[11pt,oneside]{article}
+\usepackage[
+  top=7em,
+  bottom=7em,
+  left=10em,
+  right=10em,
+  heightrounded
+]{geometry}
+
+% Add a little more room between paragraphs.
+\setlength{\parskip}{1em}
+
+% Turn off section numbering.
+\setcounter{secnumdepth}{0}
+
+% The old.  School.
+\frenchspacing
+
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\setmonofont{Inconsolatazi4}
+
+\usepackage[autocite=superscript]{biblatex}
+\bibliography{references.bib}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{%
+    pdfauthor={Niklaus Wirth},
+    pdftitle={Program Development by Stepwise Refinement},
+    pdfsubject={education in programming, programming techniques, stepwise program construction},
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    citecolor=Cerulean,
+    urlcolor=Cerulean,
+    linktoc=all
+}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\lstset{%
+    columns = fullflexible,
+    keepspaces = true,
+    mathescape = true,
+    showstringspaces = false,
+    basicstyle = \small\itshape,
+    keywordstyle = \bfseries\color{NavyBlue}\ttfamily,
+    keywordstyle = [2]\small\ttfamily,
+    morekeywords = {begin, variable, procedure, repeat, until, if, then, else,%
+                    end, array, integer, Boolean, PRINT, FAILURE},
+    otherkeywords = {:=, [, ], ;, (, )},
+    morekeywords = [2]{:=, [, ], ;, (, )}
+}
+
+\title{Program Development by Stepwise Refinement}
+\author{Niklaus Wirth}
+\date{April 1971}
+
+% Compact the table of contents a little more than default.
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{1em}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage\input{0_preface.tex}
+\newpage\input{1_introduction.tex}
+\newpage\input{2_notation.tex}
+\newpage\input{3_the_8_queens_problem.tex}
+\newpage\input{4_development_of_the_program.tex}
+\newpage\input{5_generalized_8_queens.tex}
+\newpage\input{6_extended_program.tex}
+\newpage\input{7_conclusion.tex}
+\printbibliography
+\end{document}

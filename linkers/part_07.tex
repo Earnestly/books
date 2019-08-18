@@ -92,17 +92,17 @@ are three different implementations of i386 ELF TLS; I'm going to look at the
 gnu implementation. Consider this trivial code:
 
 \begin{lstlisting}[language=C]
-    __thread int i;
-    int foo() { return i; }
+__thread int i;
+int foo() { return i; }
 \end{lstlisting}
 
 In global dynamic mode, this generates i386 assembler code like this:
 
 
 \begin{lstlisting}
-    leal i@TLSGD(,%ebx,1), %eax
-    call ___tls_get_addr@PLT
-    movl (%eax), %eax
+leal i@TLSGD(,%ebx,1), %eax
+call ___tls_get_addr@PLT
+movl (%eax), %eax
 \end{lstlisting}
 
 Recall from part 4 that \texttt{\%ebx} holds the address of the GOT table.
@@ -135,8 +135,8 @@ dynamic; it can be treated as initial executable. The program linker will
 actually rewrite the code to look like this:
 
 \begin{lstlisting}
-    movl %gs:0, %eax
-    subl $i@GOTTPOFF(%ebx), %eax
+movl %gs:0, %eax
+subl $i@GOTTPOFF(%ebx), %eax
 \end{lstlisting}
 
 Here we see that the TLS system has coopted the \texttt{\%gs} segment register,
@@ -155,8 +155,8 @@ executable, so the program linker can actually go from a global dynamic access
 all the way to a local executable access. That looks like this:
 
 \begin{lstlisting}
-    movl %gs:0,%eax
-    subl $i@TPOFF,%eax
+movl %gs:0,%eax
+subl $i@TPOFF,%eax
 \end{lstlisting}
 
 Here \texttt{i@TPOFF} is simply the known offset of i within the TLS segment.

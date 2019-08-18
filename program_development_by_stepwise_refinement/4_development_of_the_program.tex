@@ -4,26 +4,25 @@ We now formulate the stepwise generation of partial solutions to the 8-queens
 problem by the following first version of a program:
 
 \begin{lstlisting}
-    variable board, pointer, safe;
-    considerfirstcolumn;
-    repeat trycolunm;
-        if safe then
-        begin setqueen; considernextcolumn
-        end else regress
-    until lastcoldone $\vee$ regressouttofirstcol
+variable board, pointer, safe;
+considerfirstcolumn;
+repeat trycolunm;
+    if safe then
+    begin setqueen; considernextcolumn
+    end else regress
+until lastcoldone $\vee$ regressouttofirstcol
 \end{lstlisting}
 
 This program is composed of a set of more primitive instructions (or
 procedures) whose actions may be described as follows:
 
-\vspace{5mm}
 \begin{small}
 \emph{considerthiscolumn}.  The problem essentially consists of inspecting the
 safety of squares.  A pointer variable designates the currently inspected
 square.  The column in which this square lies is called the currently inspected
 column.  This procedure initializes the pointer to denote the first column.
 
-\emph{trycolumun}.  Starting at the current square of inspection in the
+\emph{trycolumn}.  Starting at the current square of inspection in the
 currently considered column, move down the column until a safe square is found,
 in which case the boolean variable \emph{safe} is set to \textbf{true}, or
 until the last square is reached and is also unsafe, in which case the variable
@@ -45,28 +44,28 @@ The next step of program development was chosen to refine the descriptions of
 the instructions \emph{trycolumn} and \emph{regress} as follows:
 
 \begin{lstlisting}
-    procedure trycolumn;
-    repeat advancepointer; testsquare
-    until safe $\vee$ lastsquare
+procedure trycolumn;
+repeat advancepointer; testsquare
+until safe $\vee$ lastsquare
 
-    procedure regress;
-        begin reconsiderpriorcolumn
-            if regressouttofirstcol then
-            begin removequeen;
-                if lastsquare then
-                begin reconsiderpriorcolumn;
+procedure regress;
+    begin reconsiderpriorcolumn
+        if $\neg$ regressouttofirstcol then
+        begin removequeen;
+            if lastsquare then
+            begin reconsiderpriorcolumn;
                 if $\neg$ regressouttofirstcol then
                     removequeen
-                end
             end
         end
+    end
 \end{lstlisting}
 
 The program is expressed in terms of the instructions:
 
 \begin{quote}
 \emph{considerfirstcolumn}\\
-\emph{cibsidernextcolumn}\\
+\emph{considernextcolumn}\\
 \emph{reconsiderpriorcolumn}\\
 \emph{advancepointer}\\
 \emph{testsquare} (sets the variable \emph{safe})\\
@@ -116,34 +115,33 @@ column $k < j$ is given by the coordinate pair $(x_k, k)$ of the board.  Now
 the variable declarations for pointer and board are refined into:
 
 \begin{lstlisting}
-    integer j  (0 $\leq$ j $\leq$ 9)
-    integer array x[1:8] (0 $\leq$ x$_i$ $\leq$ 8)
+integer j (0 $\leq$ j $\leq$ 9)
+integer array x[1:8] (0 $\leq$ x$_i$ $\leq$ 8)
 \end{lstlisting}
 
 and the further refinements of some of the above instructions and predicates
 are expressed as:
 
 \begin{lstlisting}
-    procedure considerfirstcolumn;
-        begin  j := 1; x[1] := 0 end
+procedure considerfirstcolumn;
+    begin j := 1; x[1] := 0 end
 
-    procedure considernextcolumn;
-        begin j := j + 1; x[j] := 0 end
+procedure considernextcolumn;
+    begin j := j $+$ 1; x[j] := 0 end
 
-    procedure reconsiderpriorcolumn;
-        j := j - 1
+procedure reconsiderpriorcolumn; j := j - 1
 
-    procedure advancepointer;
-        x[j] := x[j] + 1
+procedure advancepointer;
+    x[j] := x[j] $+$ 1
 
-    Boolean procedure lastsquare;
-        lastsquare := x[j] = 8;
+Boolean procedure lastsquare;
+    lastsquare := x[j] = 8;
 
-    Boolean procedure lastcoldone;
-        lastcoldone := j < 8
+Boolean procedure lastcoldone;
+    lastcoldone := j < 8
 
-    Boolean procedure regressouttofirstcol;
-        regressouttofirstcol := j < 1
+Boolean procedure regressouttofirstcol;
+    regressouttofirstcol := j < 1
 \end{lstlisting}
 
 At this stage, the program is expressed in terms of the instructions:
@@ -213,7 +211,7 @@ those with equal difference lie on the same \textbackslash-diagonal.  With row
 and column indices from 1 to 8, we obtain:
 
 \begin{lstlisting}
-    Boolean array a[1:8], b[2:16], c[-7:7]
+Boolean array a[1:8], b[2:16], c[-7:7]
 \end{lstlisting}
 
 Upon every introduction of auxiliary data, care has to he taken of their
@@ -224,13 +222,13 @@ We can now write:
 
 \begin{lstlisting}
 procedure testsquare;
-    safe := a[x[j]] $\wedge$ b[j + x[j]] $\wedge$ c[j - x[j]]
+    safe := a[x[j]] $\wedge$ b[j $+$ x[j]] $\wedge$ c[j - x[j]]
 
 procedure setqueen;
-    a[x[j]] := b[j + x[j]] := x[j - x[j]] := false
+    a[x[j]] := b[j $+$ x[j]] := x[j - x[j]] := false
 
 procedure removequeen;
-    a[x[j]] := b[j + x[j]] := c[j - x[j]] := true
+    a[x[j]] := b[j $+$ x[j]] := c[j - x[j]] := true
 \end{lstlisting}
 
 The correctness of the latter procedure is based on the fact that each queen
@@ -246,7 +244,7 @@ consequence, the principle of introduction of new auxiliary data can again be
 applied to increase efficiency: a new variable
 
 \begin{lstlisting}
-    integer i
+integer i
 \end{lstlisting}
 
 is used to represent the value so far denoted by \verb|x[j]|.  Consequently
@@ -257,22 +255,21 @@ follows:
 
 \begin{lstlisting}
 procedure testsquare;
-    safe := a[i] $\wedge$ b[i + j] $\wedge$ c[i - j]
+    safe := a[i] $\wedge$ b[i $+$ j] $\wedge$ c[i - j]
 
 procedure setqueen;
-    a[i] := b[i + j] := c[i - j] := false
+    a[i] := b[i $+$ j] := c[i - j] := false
 
 procedure removequeen;
-    a[i] := b[i + j] := c[i - j] := true
+    a[i] := b[i $+$ j] := c[i - j] := true
 
 procedure considerfirstcolumn;
     begin j := 1; i := 0 end
 
-procedure advancepointer;
-    i := i + 1;
+procedure advancepointer; i := i $+$ 1;
 
 procedure considernextcolumn;
-    begin x[j] := i; j := j + 1; i := 0 end
+    begin x[j] := i; j := j $+$ 1; i := 0 end
 
 Boolean procedure lastsquare;
     lastsquare := i = 8
@@ -290,15 +287,15 @@ The final program, using the procedures
 and with the other procedures directly substituted, now has the form
 
 \begin{lstlisting}
-    j := 1; i := 0;
-    repeat
-        repeat i :=  i + 1; testsquare
-        until safe $\vee$ (i = 8);
-        if safe then
-        begin setqueen; x[j]  := i; j := j + 1; i := 0
-        end else regress
-    until (j > 8) $\vee$ (i < 1);
-    if j > 8 then PRINT(x) else FAILURE
+j := 1; i := 0;
+repeat
+    repeat i :=  i $+$ 1; testsquare
+    until safe $\vee$ (i = 8);
+    if safe then
+    begin setqueen; x[j]  := i; j := j $+$ 1; i := 0
+    end else regress
+until (j > 8) $\vee$ (i < 1);
+if j > 8 then PRINT(x) else FAILURE
 \end{lstlisting}
 
 It is noteworthy that this program still displays the structure of the version
@@ -314,14 +311,14 @@ is by \emph{recursion} of this procedure. It can easily be composed of the same
 set of more primitive instructions which were used in the first solution.
 
 \begin{lstlisting}
-    procedure Trycolumn(j);
-        begin integer i; i := 0;
-        repeat i := i + 1; testsquare;
+procedure Trycolumn(j);
+    begin integer i; i := 0;
+        repeat i := i $+$ 1; testsquare;
             if safe then
-            begin setqueen; x[j] := i; 
-                if j < 8 then Trycolumn(j+1); 
-                if $\neg$ safe then removequeen 
-            end 
+            begin setqueen; x[j] := i;
+                if j < 8 then Trycolumn(j$+$1);
+                if $\neg$ safe then removequeen
+            end
         until safe $\vee$ (i = 8)
     end
 \end{lstlisting}
@@ -329,8 +326,8 @@ set of more primitive instructions which were used in the first solution.
 The program using this procedure then is
 
 \begin{lstlisting}
-    Trycolumn(1); 
-    if safe then PRINT(x) else FAILURE
+Trycolumn(1);
+if safe then PRINT(x) else FAILURE
 \end{lstlisting}
 
 (Note that due to the introduction of the variable \verb|i| local to the

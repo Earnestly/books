@@ -1,0 +1,81 @@
+\documentclass[11pt,oneside]{article}
+\usepackage[
+  top=7em,
+  bottom=7em,
+  left=10em,
+  right=10em,
+  heightrounded
+]{geometry}
+
+% Add a little more room between paragraphs.
+\setlength{\parskip}{1em}
+
+% Turn off section numbering.
+\setcounter{secnumdepth}{0}
+
+% The old.  School.
+\frenchspacing
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{%
+    pdftitle={Linkers},
+    pdfauthor={Ian Lance Taylor},
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    urlcolor=Cerulean,
+    linktoc=all
+}
+
+\usepackage[no-math]{fontspec}
+\setmainfont{Linux Libertine O}
+\setmonofont{Inconsolatazi4}
+
+\usepackage{listings}
+\lstset{%
+    language=[x86masm]Assembler,
+    columns=fullflexible,
+    mathescape=false,
+    keepspaces=true,
+    showstringspaces=false,
+    basicstyle=\small\ttfamily,
+    commentstyle=\color{Gray}\ttfamily,
+    keywordstyle=\bfseries\color{NavyBlue}\ttfamily,
+    morecomment=[l]{//},
+    morekeywords={pushl, leal, movl, subl}
+}
+
+\frenchspacing
+
+\title{Linkers}
+\author{Ian Lance Taylor}
+\date{2007}
+
+% Compact the table of contents a little more than default.
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{1em}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage\input{part_01.tex}
+\newpage\input{part_02.tex}
+\newpage\input{part_03.tex}
+\newpage\input{part_04.tex}
+\newpage\input{part_05.tex}
+\newpage\input{part_06.tex}
+\newpage\input{part_07.tex}
+\newpage\input{part_08.tex}
+\newpage\input{part_09.tex}
+\newpage\input{part_10.tex}
+\newpage\input{part_11.tex}
+\newpage\input{part_12.tex}
+\newpage\input{part_13.tex}
+\newpage\input{part_14.tex}
+\newpage\input{part_15.tex}
+\newpage\input{part_16.tex}
+\newpage\input{part_17.tex}
+\newpage\input{part_18.tex}
+\newpage\input{part_19.tex}
+\newpage\input{part_20.tex}
+\end{document}

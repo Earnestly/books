@@ -12,13 +12,14 @@ place.  These deliberations lead to the following modified version of the
 nonrecursive program:
 
 \begin{lstlisting}
-    considerfirstcolumn;
+considerfirstcolumn;
     repeat trycolumn;
         if safe then
         begin setqueen; considernextcolumn;
             if lastcoldone then
-            begin PRlNT(x); regress
-       end end else regress
+            begin PRINT(x); regress
+            end
+        end else regress
     until regressouttofirstcol
 \end{lstlisting}
 
@@ -33,19 +34,19 @@ The recursive program is extended with even greater ease following the same
 considerations:
 
 \begin{lstlisting}
-    procedure Trycolumn(j);
-    begin integer i;
-        $\langle$declaralions of procedures testsquare, advancequeen,
-        setqueen, removequeen, lastsquare$\rangle$
-        i := 0;
-        repeat advancequeen; testsquare;
-            if safe then
-            begin setqueen; x[j] := i;
-                if $\neg$ lastcoldone then Trycolumn(i + l) else PRINT(x);
-                removequeen
-            end
-        until lastsquare
-    end
+procedure Trycolumn(j);
+begin integer i;
+    $\langle$declaralions of procedures testsquare, advancequeen,
+    setqueen, removequeen, lastsquare$\rangle$
+    i := 0;
+    repeat advancequeen; testsquare;
+        if safe then
+        begin setqueen; x[j] := i;
+            if $\neg$ lastcoldone then Trycolumn(i $+$ l) else PRINT(x);
+            removequeen
+        end
+    until lastsquare
+end
 \end{lstlisting}
 
 The main program starting the algorithm then consists (apart from

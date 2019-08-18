@@ -16,10 +16,10 @@ condition $p$. Thus a solution is characterized as an $x$ such that $(x \in A)
 
 A straightforward program to find a solution is:
 
-\begin{lstlisting}
-    repeat Generate the next element of $A$ and call it $x$
-    until $p(x) \vee $(no more elements in $A$);
-    if $p(x)$ then $x$ = solution
+\begin{lstlisting}[basicstyle=\small\normalfont]
+repeat Generate the next element of $A$ call it $x$
+until $p(x) \vee $(no more elements in $A$);
+if $p(x)$ then $x$ = solution
 \end{lstlisting}
 
 The difficulty with this sort of problem usually is the sheer size of $A$,
@@ -45,10 +45,10 @@ requirements:
 
 The corresponding program then is:
 
-\begin{lstlisting}
-    repeat Generate the next element of $B$ and call it $x$
-    until $q(x) \vee $(no more elements in $B$);
-    if $q(x)$ then $x$ = solution
+\begin{lstlisting}[basicstyle=\small\normalfont]
+repeat Generate the next element of $B$ and call it $x$
+until $q(x) \vee $(no more elements in $B$);
+if $q(x)$ then $x$ = solution
 \end{lstlisting}
 
 A suitable condition $r$ in the 8-queens problem is the rule that in every
@@ -87,10 +87,10 @@ therefore requires that trial solutions} failing at step $j$ may have to be
 called \emph{backtracking} and may generally be characterized by the program:
 
 \begin{lstlisting}
-    j := 1;
-    repeat trystep j;
+j := 1;
+repeat trystep j;
     if successful then advance else regress
-    until (j < 1) $\vee$ (j > n)
+until (j < 1) $\vee$ (j > n)
 \end{lstlisting}
 
 In the 8-queens example, a solution can be constructed by positioning queens in

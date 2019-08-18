@@ -111,15 +111,15 @@ varies from one compiler to another, but typically looks something like
 this:
 
 \begin{lstlisting}
-    call __i686.get_pc_thunk.bx
-    add $offset,%ebx
+call __i686.get_pc_thunk.bx
+add $offset,%ebx
 \end{lstlisting}
 
 The function \texttt{\_\_i686.get\_pc\_thunk.bx} simply looks like this:
 
 \begin{lstlisting}
-    mov (%esp),%ebx
-    ret
+mov (%esp),%ebx
+ret
 \end{lstlisting}
 
 This sequence of instructions uses a position independent sequence to
@@ -139,9 +139,9 @@ For function calls, the program linker will set up a PLT entry to look
 like this:
 
 \begin{lstlisting}
-    jmp *offset(%ebx)
-    pushl index
-    jmp first_plt_entry
+jmp *offset(%ebx)
+pushl index
+jmp first_plt_entry
 \end{lstlisting}
 
 The program linker will allocate an entry in the GOT for each entry
@@ -157,8 +157,8 @@ which will push the index entry and branch to the first PLT entry. The
 first PLT entry is special, and looks like this:
 
 \begin{lstlisting}
-    pushl 4(%ebx)
-    jmp *8(%ebx)
+pushl 4(%ebx)
+jmp *8(%ebx)
 \end{lstlisting}
 
 This references the second and third entries in the GOT\@. The dynamic

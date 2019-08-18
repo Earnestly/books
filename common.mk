@@ -1,3 +1,5 @@
+MAKEFLAGS = -r
+
 # This common makefile is (usually) included via a proper Makefile in a
 # sub-directory.  We determine the directory needed to find our scripts
 # relatively from this file.

@@ -36,7 +36,7 @@ computation.
 In the i386 case, the assembler will generate these bytes:
 
 \begin{verbatim}
-    c7 05 00 00 00 00 00 00 00 00
+c7 05 00 00 00 00 00 00 00 00
 \end{verbatim}
 
 The \texttt{c7 05} are the instruction (movl constant to address). The first
@@ -60,8 +60,8 @@ the type.
 An example of a simple case which does use an addend would be
 
 \begin{lstlisting}[language=C]
-    char a[10]; // A global array.
-    char* p = &a[1]; // In a function.
+char a[10];      // A global array.
+char* p = &a[1]; // In a function.
 \end{lstlisting}
 
 The assignment to \texttt{p} will wind up requiring a relocation for the
@@ -73,9 +73,10 @@ To point out how relocations are processor dependent, let's consider \texttt{g
 assembly language instructions are required:
 
 \begin{lstlisting}
-    li 1,0 // Set register 1 to 0
-    lis 9,g@ha // Load high-adjusted part of g into register 9
-    stw 1,g@l(9) // Store register 1 to address in register 9 plus low adjusted part g
+li 1,0        // Set register 1 to 0
+lis 9,g@ha    // Load high-adjusted part of g into register 9
+stw 1,g@l(9)  // Store register 1 to address in register 9 plus low adjusted
+              // part g
 \end{lstlisting}
 
 The \texttt{lis} instruction loads a value into the upper 16 bits of register

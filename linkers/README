@@ -1,11 +1,11 @@
 taylor2007 <http://www.airs.com/blog/archives/38>
 
   This is a conversion of the essays written by Ian Lance Taylor on the topic
-  of linkers. The entire collection is indexed here:
+  of linkers.  The entire collection is indexed here:
 
     <http://lwn.net/Articles/276782/>
 
-  There is also a "recipe" for Calibre for building other ebooks:
+  There is also a recipe using Calibre available for building other ebooks:
 
     <https://github.com/cataliniacob/calibre-recipes/blob/master/ian-taylor-linker.recipe>
 
@@ -28,6 +28,7 @@ REQUIRES
     * hyperref
     * listings
     * xcolor
+    * tocloft
 
 BUILDING
 
